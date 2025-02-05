@@ -11,8 +11,8 @@ pipeline {
                 script{
                     def containerExists = sh(script: "docker ps -q -f name=das", returnStdout: true).trim()
                     if (containerExists) {
-                    sh "docker stop das"
-                    sh "docker rm das"
+                    sh 'docker stop das'
+                    sh 'docker rm das'
                     }
                 }
             }
