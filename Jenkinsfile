@@ -6,13 +6,13 @@ pipeline {
     }
 
     stages{
-        stage('Check and remove container'){
+        stage('check and remove container'){
             steps{
                 script{
                     def containerExists = sh(script: "docker ps -q -f name=das", returnStdout: true).trim()
                     if (containerExists) {
-                    sh 'docker stop das'
-                    sh 'docker rm das'
+                    sh "docker stop das"
+                    sh "docker rm das"
                     }
                 }
             }
